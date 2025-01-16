@@ -3,6 +3,9 @@ from django.http import HttpResponse
 from gtts import gTTS # type: ignore
 from sachnoi.models import TextEntry
 
+from django.http import HttpResponse , JsonResponse
+from .models import Books
+
 
 def create_text_entry(request):
     # Lưu văn bản vào database
@@ -37,3 +40,7 @@ def convert_text_to_speech(request, text_id):
 
 
 
+
+def testapi(request):
+    data = list(Books.objects.values())
+    return JsonResponse(data ,safe=False)
