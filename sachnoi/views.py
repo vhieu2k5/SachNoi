@@ -1,10 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from gtts import gTTS # type: ignore
-from sachnoi.models import TextEntry
-
 from django.http import HttpResponse , JsonResponse
-from .models import Books
+from gtts import gTTS # type: ignore
+from sachnoi.models import TextEntry, Books
 
 
 def create_text_entry(request):
@@ -37,9 +34,6 @@ def convert_text_to_speech(request, text_id):
     tts.write_to_fp(response)
     response['Content-Disposition'] = f'attachment; filename="{entry.title}.mp3"'
     return response
-
-
-
 
 def testapi(request):
     data = list(Books.objects.values())
