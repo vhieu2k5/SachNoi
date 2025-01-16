@@ -10,4 +10,8 @@ urlpatterns = [
     path('discover.html', views.discover, name='discover'),  
     path('author.html', views.author, name='author'),  
     path('category.html', views.category, name='category'),  
+    path('login.htm',views.login, name='login'),
+    path('signup.htm',views.signup, name='signup'),
+    path('convert/<int:text_id>/', views.convert_text_to_speech, name='convert_text_to_speech'),
+    path('create-entry/', views.create_text_entry, name='create_entry'),
 ]

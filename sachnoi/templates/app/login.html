@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Đăng Nhập </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+        
+    <div class="container_ls">
+        <div class="form-container_ls" >
+            <h2 class="h2_ls">Đăng Nhập</h2>
+            <form action="/login" method="post">
+                <div class="form-group">
+                    <label class="lb_ls" for="login-email">Email:</label>
+                    <input class="ip_ls" type="email" id="login-email" name="email" placeholder="Nhập email" required>
+                </div>
+                <div class="form-group">
+                    <label class="lb_ls" for="login-password">Mật khẩu:</label>
+                    <input class="ip_ls" type="password" id="login-password" name="password" placeholder="Nhập mật khẩu" required>
+                </div>
+                {% comment %} <button class="btn_ls"  type="submit">Đăng Nhập</button> {% endcomment %}
+                <button class="btn_ls" type="submit"><a href="{% url 'home' %}">Đăng nhập</a></button>
+                <p class="p_ls">Chưa có tài khoản? <a class="a_ls" href="{% url 'signup' %}">Đăng Ký</a></p>
+            </form>
+        </div>
+    </div>
+        
+</body>
+</html>
