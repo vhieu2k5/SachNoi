@@ -26,6 +26,18 @@ def login(request):
     return render(request,'app/login.html')
 def signup(request):
     return render(request,'app/signup.html')
+def forgot_password(request):
+    return render(request,'app/forgot_password.html')
+def account(request):
+    return render(request,'app/account.html')
+def book_history(request):
+    return render(request,'app/book_history.html')
+def favorite_books(request):
+    return render(request,'app/favorite_books.html')
+def saved_book(request):
+    return render(request,'app/saved_book.html')
+def enter_OTP_code(request):
+    return render(request,'app/enter_OTP_code.html')
 def convert_text_to_speech(request, text_id):
     from django.shortcuts import get_object_or_404  
     entry = get_object_or_404(TextEntry, id=text_id)
