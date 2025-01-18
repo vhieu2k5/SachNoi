@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/base.css">
-    <link rel="stylesheet" href="assets/css/each_book_genre.css">
+    <link rel="stylesheet" href="{% static 'assets/css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/each_book_genre.css' %}">
 </head>
 <body>
     <!-- header -->
@@ -44,9 +45,11 @@
             </ul>
         </div>
 
-        <div class="personal-account">
-            <img src="assets/images/Flag_of_Vietnam.svg.webp" alt="personal image" class="image">
-        </div>
+        <a href="{% url 'account' %}">
+            <div class="personal-account">
+                <img src="{% static 'assets/images/Flag_of_Vietnam.svg.webp' %}" alt="personal image" class="image">
+            </div>
+        </a> 
     </header>
     <!-- end header -->
 
@@ -74,7 +77,7 @@
             <a href="#">
                 <div class="main each-book-genre-item-main">
                     <div class="book-image">
-                        <img src="assets/images/sach-1521858607292758740290.webp" alt="Sach" class="image">
+                        <img src="{% static 'assets/images/sach-1521858607292758740290.webp' %}" alt="Sach" class="image">
                     </div>
                     <div class="book-information">
                         <h2 class="book-title">Tuổi trẻ đáng giá bao nhiêu</h2>
@@ -97,7 +100,7 @@
             <a href="#">
                 <div class="main each-book-genre-item-main">
                     <div class="book-image">
-                        <img src="assets/images/sach-1521858607292758740290.webp" alt="Sach" class="image">
+                        <img src="{% static 'assets/images/sach-1521858607292758740290.webp' %}" alt="Sach" class="image">
                     </div>
                     <div class="book-information">
                         <h2 class="book-title">Tuổi trẻ đáng giá bao nhiêu</h2>
@@ -120,7 +123,7 @@
             <a href="#">
                 <div class="main each-book-genre-item-main">
                     <div class="book-image">
-                        <img src="assets/images/sach-1521858607292758740290.webp" alt="Sach" class="image">
+                        <img src="{% static 'assets/images/sach-1521858607292758740290.webp' %}" alt="Sach" class="image">
                     </div>
                     <div class="book-information">
                         <h2 class="book-title">Tuổi trẻ đáng giá bao nhiêu</h2>
@@ -143,7 +146,7 @@
             <a href="#">
                 <div class="main each-book-genre-item-main">
                     <div class="book-image">
-                        <img src="assets/images/sach-1521858607292758740290.webp" alt="Sach" class="image">
+                        <img src="{% static 'assets/images/sach-1521858607292758740290.webp' %}" alt="Sach" class="image">
                     </div>
                     <div class="book-information">
                         <h2 class="book-title">Tuổi trẻ đáng giá bao nhiêu</h2>
@@ -171,7 +174,7 @@
             <a href="#">
                 <div class="main each-book-genre-item-main">
                     <div class="book-image">
-                        <img src="assets/images/sach-1521858607292758740290.webp" alt="Sach" class="image">
+                        <img src="{% static 'assets/images/sach-1521858607292758740290.webp' %}" alt="Sach" class="image">
                     </div>
                     <div class="book-information">
                         <h2 class="book-title">Tuổi trẻ đáng giá bao nhiêu</h2>
@@ -194,7 +197,7 @@
             <a href="#">
                 <div class="main each-book-genre-item-main">
                     <div class="book-image">
-                        <img src="assets/images/sach-1521858607292758740290.webp" alt="Sach" class="image">
+                        <img src="{% static 'assets/images/sach-1521858607292758740290.webp' %}" alt="Sach" class="image">
                     </div>
                     <div class="book-information">
                         <h2 class="book-title">Tuổi trẻ đáng giá bao nhiêu</h2>
@@ -217,7 +220,7 @@
             <a href="#">
                 <div class="main each-book-genre-item-main">
                     <div class="book-image">
-                        <img src="assets/images/sach-1521858607292758740290.webp" alt="Sach" class="image">
+                        <img src="{% static 'assets/images/sach-1521858607292758740290.webp' %}" alt="Sach" class="image">
                     </div>
                     <div class="book-information">
                         <h2 class="book-title">Tuổi trẻ đáng giá bao nhiêu</h2>
@@ -240,7 +243,7 @@
             <a href="#">
                 <div class="main each-book-genre-item-main">
                     <div class="book-image">
-                        <img src="assets/images/sach-1521858607292758740290.webp" alt="Sach" class="image">
+                        <img src="{% static 'assets/images/sach-1521858607292758740290.webp' %}" alt="Sach" class="image">
                     </div>
                     <div class="book-information">
                         <h2 class="book-title">Tuổi trẻ đáng giá bao nhiêu</h2>
@@ -268,7 +271,7 @@
             <a href="#">
                 <div class="main each-book-genre-item-main">
                     <div class="book-image">
-                        <img src="assets/images/sach-1521858607292758740290.webp" alt="Sach" class="image">
+                        <img src="{% static 'assets/images/sach-1521858607292758740290.webp' %}" alt="Sach" class="image">
                     </div>
                     <div class="book-information">
                         <h2 class="book-title">Tuổi trẻ đáng giá bao nhiêu</h2>
@@ -291,7 +294,7 @@
             <a href="#">
                 <div class="main each-book-genre-item-main">
                     <div class="book-image">
-                        <img src="assets/images/sach-1521858607292758740290.webp" alt="Sach" class="image">
+                        <img src="{% static 'assets/images/sach-1521858607292758740290.webp' %}" alt="Sach" class="image">
                     </div>
                     <div class="book-information">
                         <h2 class="book-title">Tuổi trẻ đáng giá bao nhiêu</h2>
@@ -314,7 +317,7 @@
             <a href="#">
                 <div class="main each-book-genre-item-main">
                     <div class="book-image">
-                        <img src="assets/images/sach-1521858607292758740290.webp" alt="Sach" class="image">
+                        <img src="{% static 'assets/images/sach-1521858607292758740290.webp' %}" alt="Sach" class="image">
                     </div>
                     <div class="book-information">
                         <h2 class="book-title">Tuổi trẻ đáng giá bao nhiêu</h2>
@@ -337,7 +340,7 @@
             <a href="#">
                 <div class="main each-book-genre-item-main">
                     <div class="book-image">
-                        <img src="assets/images/sach-1521858607292758740290.webp" alt="Sach" class="image">
+                        <img src="{% static 'assets/images/sach-1521858607292758740290.webp' %}" alt="Sach" class="image">
                     </div>
                     <div class="book-information">
                         <h2 class="book-title">Tuổi trẻ đáng giá bao nhiêu</h2>
