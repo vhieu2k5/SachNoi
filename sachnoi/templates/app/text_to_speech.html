@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Speech</title>
+</head>
+<body>
+    <h1>Chuyển Văn Bản Thành Giọng Nói</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" name="action" value="play">Phát trực tiếp</button>
+        <button type="submit" name="action" value="download">Tải về</button>
+    </form>
+</body>
+</html>

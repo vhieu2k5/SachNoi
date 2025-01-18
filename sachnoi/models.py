@@ -1,11 +1,6 @@
-# This is an auto-generated Django model module.
-# You'll have to do the following manually to clean this up:
-#   * Rearrange models' order
-#   * Make sure each model has one field with primary_key=True
-#   * Make sure each ForeignKey and OneToOneField has `on_delete` set to the desired behavior
-#   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
-# Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
+from gtts import gTTS
+import os
 
 
 class AuthGroup(models.Model):
@@ -77,6 +72,7 @@ class AuthUserUserPermissions(models.Model):
         unique_together = (('user', 'permission'),)
 
 
+
 class Authors(models.Model):
     name = models.CharField(max_length=255)
     bio = models.TextField(blank=True, null=True)
@@ -84,6 +80,7 @@ class Authors(models.Model):
     class Meta:
         managed = False
         db_table = 'authors'
+
 
 
 class BookAudioFiles(models.Model):
@@ -95,6 +92,7 @@ class BookAudioFiles(models.Model):
     class Meta:
         managed = False
         db_table = 'book_audio_files'
+
 
 
 class BookReviews(models.Model):
@@ -117,10 +115,34 @@ class Books(models.Model):
     cover_image = models.CharField(max_length=255, blank=True, null=True)
     release_date = models.DateField(blank=True, null=True)
     audio_file = models.CharField(max_length=255, blank=True, null=True)
+    textcontent = models.TextField(blank=True, null=True)
 
     class Meta:
         managed = False
         db_table = 'books'
+
+    def generate_audio(self, output_dir="audio_files"):
+        """
+        Tạo file âm thanh từ nội dung của sách và lưu đường dẫn vào audio_file.
+        """
+        if not self.textcontent:
+            raise ValueError(f"Sách '{self.title}' không có nội dung để tạo file âm thanh.")
+
+        if not os.path.exists(output_dir):
+            os.makedirs(output_dir)
+
+        filename = f"{self.title}.mp3"
+        file_path = os.path.join(output_dir, filename)
+
+        # Kiểm tra nếu file đã tồn tại
+        if not os.path.exists(file_path):
+            tts = gTTS(self.textcontent, lang='vi')
+            tts.save(file_path)
+
+        self.audio_file = file_path
+        self.save()
+        return f"Đã tạo file âm thanh: {file_path}"
+
 
 
 class Categories(models.Model):
@@ -143,6 +165,8 @@ class DjangoAdminLog(models.Model):
     class Meta:
         managed = False
         db_table = 'django_admin_log'
+
+
 
 
 class DjangoContentType(models.Model):
@@ -174,6 +198,7 @@ class DjangoSession(models.Model):
     class Meta:
         managed = False
         db_table = 'django_session'
+
 
 
 class UserBooks(models.Model):

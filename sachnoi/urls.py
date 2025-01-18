@@ -10,5 +10,6 @@ urlpatterns = [
     path('discover.html', views.discover, name='discover'),  
     path('author.html', views.author, name='author'),  
     path('category.html', views.category, name='category'),  
-    path('testapi/',views.testapi , name='testapi')
+    path('testapi/',views.testapi , name='testapi'),
+    path('text_to_speech.html', views.text_to_speech_view, name='text_to_speech'),
 ]
