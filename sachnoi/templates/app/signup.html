@@ -1,30 +1,44 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Đăng Ký</title>
-    <link rel="stylesheet" href="styles.css">
+    
+    <link rel="stylesheet" href="{% static 'assets/css/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/styles_signup.css' %}" />
 </head>
 <body>
-    <div class="container_ls">
-        <div class="form-container_ls" id="register-form">
-            <h2 class="h2_ls">Đăng Ký</h2>
-            <form action="/register" method="post">
-                <div class="form-group">
-                    <label class="lb_ls" for="register-email">Email:</label>
-                    <input class="ip_ls" type="email" id="register-email" name="email" placeholder="Nhập email" required>
+    <header class="header">
+        
+        <div class="header-content">
+            <ul>
+                
+                <li class="title-page"><a href="{% url 'home' %}">Trang chủ</a></li>
+                <li><a href="{% url 'discover' %}">Khám phá</a></li>
+                <li><a href="{% url 'author' %}">Tác giả</a></li>
+                <li><a href="{% url 'category' %}">Thể loại</a></li>
+               
+            </ul>
+        </div>
+
+    </header>
+
+    <div class="container">
+        <div class="box">
+            <form action="#" method="post">
+                <h1 class="title">Đăng kí</h1>
+                <input type="text" id="name-user" placeholder="Tên đăng nhập">
+                <input type="email" id="email" placeholder="Email">
+                <input type="password" id="password" placeholder="Mật khẩu">
+                <input type="submit" value="Xác nhận" class="confirm">
+                <div>
+                    <h3>Bạn chưa có tài khoản?</h3>
+                    <a href="{% url 'login' %}" class="login">Đăng nhập ngay</a>
                 </div>
-                <div class="form-group">
-                    <label class="lb_ls" for="register-password">Mật khẩu:</label>
-                    <input class="ip_ls" type="password" id="register-password" name="password" placeholder="Nhập mật khẩu" required>
-                </div>
-                <div class="form-group">
-                    <label class="lb_ls" for="confirm-password">Xác nhận mật khẩu:</label>
-                    <input class= "ip_ls"type="password" id="confirm-password" name="confirm_password" placeholder="Nhập lại mật khẩu" required>
-                </div>
-                <button class="btn_ls" type="submit">Đăng Ký</button>
-                <p class= "p_ls">Đã có tài khoản? <a class="a_ls" href="{% url 'login' %}">Đăng Nhập</a></p>
             </form>
         </div>
     </div>

@@ -75,13 +75,17 @@ WSGI_APPLICATION = 'websachnoi.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'audiobook',  # Tên cơ sở dữ liệu của bạn
+    #     'USER': 'root',  # Tên người dùng MySQL
+    #     'PASSWORD': 'dauphuthanhkim00',  # Mật khẩu MySQL
+    #     'HOST': '127.0.0.1',  # Địa chỉ máy chủ MySQL (localhost nếu đang chạy trên máy tính cục bộ)
+    #     'PORT': '3306',  # Cổng của MySQL (mặc định là 3306)
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'audiobook',  # Tên cơ sở dữ liệu của bạn
-        'USER': 'root',  # Tên người dùng MySQL
-        'PASSWORD': 'dauphuthanhkim00',  # Mật khẩu MySQL
-        'HOST': '127.0.0.1',  # Địa chỉ máy chủ MySQL (localhost nếu đang chạy trên máy tính cục bộ)
-        'PORT': '3306',  # Cổng của MySQL (mặc định là 3306)
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 

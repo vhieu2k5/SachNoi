@@ -12,7 +12,11 @@ urlpatterns = [
     path('category.html', views.category, name='category'),  
     path('login.htm',views.login, name='login'),
     path('signup.htm',views.signup, name='signup'),
+    path('forgot-password.html', views.forgot_password, name='forgot_password'),
+    path('enter_OTP_code.html', views.enter_OTP_code, name='enter_OTP_code'),
     path('convert/<int:text_id>/', views.convert_text_to_speech, name='convert_text_to_speech'),
     path('create-entry/', views.create_text_entry, name='create_entry'),
-    path('testapi/',views.testapi , name='testapi')
+    path('testapi/',views.testapi , name='testapi'),
+    path('text_to_speech.html', views.text_to_speech_view, name='text_to_speech'),
+
 ]
