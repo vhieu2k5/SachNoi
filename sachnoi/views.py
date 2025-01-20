@@ -1,9 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render ,redirect
 from django.http import HttpResponse , JsonResponse
 from gtts import gTTS # type: ignore
 from sachnoi.models import TextEntry, Books
 from .forms import TextToSpeechForm
 from io import BytesIO
+from . models import *
+import json
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate,login,logout
+from django.contrib import messages
 
 def text_to_speech_view(request):
     if request.method == "POST":
@@ -59,10 +64,37 @@ def category(request):
     )
 def discover(request):
     return render(request,'app/discover.html')
-def login(request):
-    return render(request,'app/login.html')
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
+from django.shortcuts import render, redirect
+
+def loginpage(request):
+    if request.user.is_authenticated:
+        return redirect('home')  # Nếu người dùng đã đăng nhập, chuyển hướng đến trang chủ.
+    if request.method == "POST":
+        name = request.POST.get('username')
+        pass1 = request.POST.get('password')
+        user = authenticate(request, username=name, password=pass1)
+        if user is not None:
+            login(request, user)  # Đăng nhập người dùng.
+            return redirect('home')  # Chuyển hướng đến trang chủ.
+        else: messages.info(request, 'Tên đăng nhập hoặc mật khẩu không đúng!')
+
+    context = {}
+    return render(request, 'app/login.html', context)
+
+def logoutPage(request):
+    logout(request)  # Đăng xuất người dùng.
+    return redirect('login')  # Chuyển hướng đến trang đăng nhập.
+
 def signup(request):
-    return render(request,'app/signup.html')
+    form = CreateUserForm()
+    if request.method == "POST":
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+    context = {'form' : form}
+    return render(request,'app/signup.html', context)
 
 def forgot_password(request):
     return render(request,'app/forgot_password.html')

@@ -655,3 +655,45 @@
 .a_ls:hover {
     text-decoration: underline;
 }
+
+/*  ảnh người dùng */
+.personal-account {
+    position: relative;
+    display: inline-block;
+}
+
+.image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 60px; /* Vị trí dưới ảnh */
+    right: 0; /* Canh lề phải */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 10px 0;
+    z-index: 1000;
+    min-width: 150px;
+}
+
+.dropdown-menu li {
+    padding: 10px 20px;
+}
+
+.dropdown-menu li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+}
+
+.dropdown-menu li:hover {
+    background-color: #f2f2f2;
+}
